@@ -55,7 +55,8 @@ class DolphinGenerator(Generator):
         # wiimote scanning
         dolphinSettings.set("Core", "WiimoteContinuousScanning", "True")
 
-        # gamecube pads forced as standard pad
+        # if wii u adapter is found set pads to adapter
+        # otherwise gamecube pads forced as standard pad
         if os.system("lsusb | grep '057e:0337'") == 0:
             dolphinSettings.set("Core", "SIDevice0", "12")
             dolphinSettings.set("Core", "SIDevice1", "12")
